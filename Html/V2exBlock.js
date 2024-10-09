@@ -27,37 +27,22 @@ const body = $response.body.replace(
       div[class^="wwads-"],.adsbygoogle{
         display: none !important;
       }
-      
     </style>
     <script>
-      // console.log('V2EX Block script loaded');
       document.addEventListener('DOMContentLoaded', function() {
-        // console.log('DOM fully loaded and parsed');
         const nodes = document.querySelectorAll('a[href*="go/invest"]');
-        // console.log('Found ' + nodes.length + ' nodes with href containing "go/invest"');
-        nodes.forEach(function(node, index) {
-          // console.log('Processing node ' + (index + 1));
+        nodes.forEach(function(node) {
           const nextNode = node.nextElementSibling;
           if (nextNode && nextNode.tagName === 'STRONG') {
-            // console.log('Next node is a STRONG tag');
             const memberLink = nextNode.querySelector('a[href*="/member/"]');
             if (memberLink) {
-              // console.log('Found member link in STRONG tag');
               let parent = node.closest('div.cell');
               if (parent) {
-                // console.log('Found parent div.cell, hiding it');
                 parent.style.display = 'none';
-              } else {
-                // console.log('Could not find parent div.cell');
               }
-            } else {
-              // console.log('No member link found in STRONG tag');
             }
-          } else {
-            // console.log('Next node is not a STRONG tag');
           }
         });
-        // console.log('Finished processing all nodes');
       });
     </script>
   `
