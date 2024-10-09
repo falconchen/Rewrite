@@ -24,7 +24,7 @@ const body = $response.body.replace(
     <style>
       .sidebar_units,
       .sidebar_compliance,
-      div[class^="wwads-"],div.adsbygoogle{
+      div[class^="wwads-"],.adsbygoogle{
         display: none !important;
       }
       
