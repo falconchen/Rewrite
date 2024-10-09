@@ -30,7 +30,12 @@ const body = $response.body.replace(
     </style>
     <script>
       document.addEventListener('DOMContentLoaded', function() {
-        const nodes = document.querySelectorAll('a[href*="go/invest"]');
+        const nodeSlugs = ['invest','mmm']; // 屏蔽节点slug名
+        const paths = nodeSlugs.map(function(slug) {
+          return 'a[href*="/go/' + slug + '"]';
+        }).join(',');
+        
+        const nodes = document.querySelectorAll(paths);
         nodes.forEach(function(node) {
           const nextNode = node.nextElementSibling;
           if (nextNode && nextNode.tagName === 'STRONG') {
@@ -43,6 +48,7 @@ const body = $response.body.replace(
             }
           }
         });
+
       });
     </script>
   `
